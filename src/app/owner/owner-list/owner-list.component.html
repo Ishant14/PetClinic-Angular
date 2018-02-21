@@ -1,0 +1,17 @@
+<div class="container">
+<h3>Owners</h3>
+<br/>
+<div class="row">
+    <button class="btn btn-success pull-right" (click)="addOwner()">Add Owner</button>
+  <input class="pull-right" id="filter" type="text" placeholder="search owner"/>
+  
+</div>
+<br/>
+<div class="row">
+  
+  <ag-grid-angular #agGrid style="width: 100%; height: 400px;" class="ag-theme-fresh"
+  [gridOptions]="gridOptions"[rowData]="owners">
+</ag-grid-angular>
+
+</div>
+</div>
