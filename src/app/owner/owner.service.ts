@@ -4,11 +4,15 @@ import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 import { Owner } from './owner';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class OwnerService {
 
   private entity_url = environment.REST_API_URL + 'owners';
+
+  private  ownerData = new BehaviorSubject<Owner>(null);
+  currentOwnerData = this.ownerData.asObservable();
 
   constructor(private http: Http) { }
 
@@ -18,6 +22,10 @@ export class OwnerService {
       .catch(this.handleError);
   }
   
+  changeOwnerData(owner: Owner){
+    console.log("Service  owner :"+ owner.firstName);
+    this.ownerData.next(owner);
+  }
 
   private handleError(error: Response | any) {
     console.log('handleError log: ');
@@ -37,6 +45,5 @@ export class OwnerService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
 
 }

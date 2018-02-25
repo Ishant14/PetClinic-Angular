@@ -4,6 +4,9 @@ import { Owner } from '../owner';
 import { OwnerService } from '../owner.service';
 import { error } from 'util';
 import { Router } from '@angular/router';
+import { PetCellRenderer } from 'app/common/aggrid-cellrenderer/petCellRenderer';
+import { EventEmitter } from '@angular/core/src/event_emitter';
+
 
 @Component({
   selector: 'app-owner-list',
@@ -16,8 +19,10 @@ export class OwnerListComponent implements OnInit {
   owners: Owner[];
   errorMessage: string;
   private gridOptions: GridOptions;
+  selectedOwner: Owner;
 
-  ngOnInit(): void {
+  ngOnInit() {
+
   }
 
   constructor(private ownerService: OwnerService, private route: Router) {
@@ -36,12 +41,12 @@ export class OwnerListComponent implements OnInit {
       { 
         headerName: 'Pets', 
         field: 'pets',
+        cellRenderer: "PetCellRenderer",
+        colId: "params",
        }
     ];
-
     this.getOwners();
   }
-
 
   getOwners() {
     this.ownerService.getOwners().subscribe(
@@ -52,6 +57,12 @@ export class OwnerListComponent implements OnInit {
 
   addOwner(){
     this.route.navigate(['/owners/add']);
+  }
+  
+  public onRowSelect(owner: Owner): void{
+    //owner: Owner  = JSON.parse(owner);
+    console.log("Row Selected : "+ JSON.stringify(owner) );
+    this.ownerService.changeOwnerData(owner);
   }
 
 }

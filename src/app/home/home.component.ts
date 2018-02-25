@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   logoImagePath : string;
 
   constructor() {
-    this.logoImagePath = "assets/images/pets2.png";
+    this.logoImagePath = "assets/images/pets.jpg";
 
    }
 

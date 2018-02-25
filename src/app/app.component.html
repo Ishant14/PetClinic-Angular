@@ -1,2 +1,55 @@
-<app-home></app-home>
+<!-- <app-home></app-home> -->
+
+<nav class="navbar navbar-deafult" >
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span>Angular Pet Clinic</span></a>
+    </div>
+  
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a routerLink="/home" title="home page">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+        </li>
+  
+        
+
+        <li>
+            <a routerLink="/ownersmodule" title="home page">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span>Owner</span>
+            </a>
+          </li>
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+             aria-haspopup="true" aria-expanded="false">Veterinarians<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/vets"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span> All</span></a>
+            </li>
+            <li><a routerLink="/vets/add"><span class="glyphicon glyphicon-plus"
+                                                aria-hidden="true"></span><span> Add New</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="/pettypes" routerLinkActive="active" title="pettypes">
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span>Pet Types</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/specialties" routerLinkActive="active" title="specialties">
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span>Specialties</span>
+          </a>
+        </li>
+      </ul>
+  
+    </div>
+  </nav>
+   
+ 
 <router-outlet></router-outlet>

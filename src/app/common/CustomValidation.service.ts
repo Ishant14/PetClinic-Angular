@@ -1,0 +1,15 @@
+// import { AbstractControl, ValidatorFn } from '@angular/forms';
+
+// export class customValidationService {
+//    static checkLimit(length:number): ValidatorFn {
+//     return (c: AbstractControl): { [key: string]: boolean } | null => {
+//         if (c.value && (isNaN(c.value) || c.value < min || c.value > max)) {
+//             return { 'range': true };
+//         }
+
+//         if(c.value.length )
+
+//         return null;
+//     };
+// }
+// }

@@ -3,25 +3,29 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { VeteriansComponent } from './veterians/veterians.component';
-import {OwnerModule} from './owner/owner.module';
 import {AppRoutingModule} from './app-routing.module';
 import { HttpModule } from '@angular/http';
-
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { PetCellRenderer } from 'app/common/aggrid-cellrenderer/petCellRenderer';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    VeteriansComponent
+    VeteriansComponent,
+    PetCellRenderer
+    
   ],
   imports: [
     BrowserModule,
-    OwnerModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpModule,
   ],
   providers: [],
+  
   bootstrap: [AppComponent]
 })
 
